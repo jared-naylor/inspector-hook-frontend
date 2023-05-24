@@ -1,18 +1,33 @@
 import "./App.css";
 import Display from "./Components/Display";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Request from "./Components/Request";
+import requests from "./requests";
+// import axios from "axios";
 
 function App() {
   let [payloadData, setPayloadData] = useState([]);
+  let [displayedPayload, setDisplayPayload] = useState();
 
   useEffect(() => {
-    axios("get", window.location.href)
-      .then((res) => res.json())
-      .then((data) => setPayloadData(data.message));
+    // let pathname = window.location.pathname;
+    // console.log(pathname);
+    // axios
+    //   .get(`http://localhost:3001/`)
+    //   .then((res) => res.json())
+    //   .then((data) => setPayloadData(data.message))
+    //   .catch((error) => {
+    //     console.log(pathname + " doesn't exist");
+    //   });
+    setPayloadData(requests);
   }, []);
 
-  return <Display payload={payloadData}></Display>;
+  return (
+    <div>
+      <Request setDisplay={setDisplayPayload}></Request>;
+      <Display payload={displayedPayload}></Display>
+    </div>
+  );
 }
 
 export default App;

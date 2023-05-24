@@ -28,6 +28,40 @@
   color: #61dafb;
 }
 
+ul.request {
+  padding: 0px;
+  list-style: none;
+  border: 1px solid gray;
+  width: 20%;
+}
+
+li.http {
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  text-align: center;
+}
+
+.payload {
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+  top: 25%;
+  left: 30%;
+  position: absolute;
+}
+
+div.payload ul {
+  list-style: none;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
