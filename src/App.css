@@ -51,7 +51,7 @@ li.http {
   margin: auto;
   width: 50%;
   padding: 10px;
-  top: 15%;
+  top: 20%;
   left: 30%;
   position: absolute;
   border: 1px solid grey;
@@ -79,12 +79,19 @@ div.payload ul {
 }
 
 Button {
+  color: rgb(38, 139, 210);
   position: absolute;
   top: 9%;
   left: 30%;
 }
 
-.green {
-  color: rgb(49, 199, 131);
-  font-weight: bold;
+span.url {
+  font-size: 12px;
+  position: absolute;
+  width: 22%;
+  top: 11%;
+  left: 38%;
 }
+
+/*
+curren*/

@@ -15,39 +15,42 @@ function App() {
   let [displayedPayload, setDisplayPayload] = useState();
   let [url, setUrl] = useState();
 
+  useEffect(() => {
+    (async () => {
+      try {
+        let data = await binService.getAllBins();
+        setBinIds(data.map((pair) => pair["endpoint"]));
+      } catch {
+        console.log("Couldn't fetch payloads");
+      }
+    })();
+  }, []);
+
   // let pathname = window.location.pathname;
   // let dirs = pathname.split("/");
   // let uuid = dirs[dirs.length - 1];
 
   async function onSelect(event) {
     let uuid = event.target.value;
-    try {
-      let data = await binService.getAllPayloads(uuid);
-      setPayloads(data);
-    } catch (error) {
-      console.log("Couldn't fetch payloads");
+    setDisplayPayload();
+    if (uuid) {
+      try {
+        let data = await binService.getAllPayloads(uuid);
+        setPayloads(data);
+      } catch (error) {
+        console.log("Couldn't fetch payloads");
+      }
     }
   }
 
   async function createURL(event) {
     try {
       let data = await binService.createBin();
-      setUrl(data);
+      setUrl(`https://psh.pp.ua/hook/${data}`);
     } catch (error) {
       console.log("URL not created");
     }
   }
-
-  useEffect(() => {
-    (async () => {
-      try {
-        let data = await binService.getAllBins();
-        console.log(data);
-      } catch {
-        console.log("Couldn't fetch payloads");
-      }
-    })();
-  }, []);
 
   // useEffect(() => {
   //   (async () => {
@@ -69,10 +72,12 @@ function App() {
       <PayloadDetails payload={displayedPayload}></PayloadDetails>
       <Form.Select aria-label="Default select example" onChange={onSelect}>
         <option></option>
-        <option value="abc123">One</option>
+        {binIds.map((bin) => {
+          return <option>{bin}</option>;
+        })}
       </Form.Select>
       <Button onClick={createURL}>Create URL</Button>
-      {url && <span>{url}</span>}
+      {url && <span className="url">{url}</span>}
     </div>
   );
 }
