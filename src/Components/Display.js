@@ -7,8 +7,8 @@ function Display({ payload }) {
     return (
       <div className="payload">
         <ul>
-          {Object.keys(payload).map((key) => (
-            <li>
+          {Object.keys(payload).map((key, index) => (
+            <li key={index}>
               {key} : <span className={idColumn(key)}>{payload[key]}</span>
             </li>
           ))}

@@ -3,6 +3,7 @@ import Display from "./Components/Display";
 import { useEffect, useState } from "react";
 import Request from "./Components/Request";
 import requests from "./requests";
+import { Table } from "react-bootstrap";
 // import axios from "axios";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <Request setDisplay={setDisplayPayload}></Request>;
       <Display payload={displayedPayload}></Display>
     </div>

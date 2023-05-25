@@ -33,25 +33,38 @@ ul.request {
   list-style: none;
   border: 1px solid gray;
   width: 20%;
+  border: 1px solid grey;
+  background-color: rgb(255, 251, 251);
 }
 
 li.http {
   padding: 10px;
   border-bottom: 1px solid gray;
   text-align: center;
+  cursor: pointer;
+  font-family: math;
+  font-size: 20px;
+  color: rgb(49, 199, 131);
 }
 
 .payload {
   margin: auto;
-  width: 30%;
+  width: 50%;
   padding: 10px;
-  top: 25%;
+  top: 15%;
   left: 30%;
   position: absolute;
+  border: 1px solid grey;
+  background-color: rgb(244, 240, 240);
+}
+
+li.selected {
+  background-color: rgb(235, 230, 230);
 }
 
 div.payload ul {
   list-style: none;
+  font-family: monospace;
 }
 
 .red {
@@ -59,14 +72,6 @@ div.payload ul {
 }
 
 .green {
-  color: green;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  color: rgb(49, 199, 131);
+  font-weight: bold;
 }
