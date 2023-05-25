@@ -1,4 +1,5 @@
-import { Card } from 'react-bootstrap';
+import { Card } from "react-bootstrap";
+import ReactJson from "react-json-view";
 
 function PayloadDetails({ payload }) {
   if (payload) {
@@ -7,15 +8,11 @@ function PayloadDetails({ payload }) {
         <Card>
           <Card.Body>
             <Card.Title>HTTP Request</Card.Title>
-            <pre>
-              <code className="language-json">
-                {JSON.stringify(payload, null, 2)}
-              </code>
-            </pre>
+            <ReactJson src={JSON.parse(JSON.stringify(payload))}></ReactJson>
           </Card.Body>
         </Card>
       </div>
-    )
+    );
   }
 }
 
