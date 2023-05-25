@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = '';
+const baseURL = "";
 
 const getAllPayloads = async (uuid) => {
   const response = await axios.get(`${baseURL}/hook/${uuid}`);
@@ -24,4 +24,3 @@ const exported = {
 };
 
 export default exported;
-

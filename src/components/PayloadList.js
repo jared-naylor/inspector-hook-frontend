@@ -9,7 +9,9 @@ function PayloadList({ setDisplayPayload, payloads }) {
     removeSelected();
     let string = event.target.textContent.split("/ ");
     let timeStamp = string[string.length - 1];
-    let payload = payloads.filter((payload) => payload.http_timestamp === timeStamp)[0];
+    let payload = payloads.filter(
+      (payload) => payload.http_timestamp === timeStamp
+    )[0];
     event.target.classList.add("selected");
     setDisplayPayload(payload.http_request);
   }
