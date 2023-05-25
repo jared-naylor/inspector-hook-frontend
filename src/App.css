@@ -71,6 +71,19 @@ div.payload ul {
   color: red;
 }
 
+.form-select {
+  position: absolute;
+  top: 9%;
+  left: 60%;
+  width: 20%;
+}
+
+Button {
+  position: absolute;
+  top: 9%;
+  left: 30%;
+}
+
 .green {
   color: rgb(49, 199, 131);
   font-weight: bold;

@@ -1,8 +1,14 @@
 import axios from "axios";
-const baseURL = "";
+const baseURL = "https://psh.pp.ua";
 
 const getAllPayloads = async (uuid) => {
   const response = await axios.get(`${baseURL}/hook/${uuid}`);
+
+  return response.data;
+};
+
+const getAllBins = async () => {
+  const response = await axios.get(baseURL);
 
   return response.data;
 };
@@ -21,6 +27,7 @@ const exported = {
   getAllPayloads,
   createBin,
   deleteBin,
+  getAllBins,
 };
 
 export default exported;
