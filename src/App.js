@@ -1,32 +1,37 @@
-import "./App.css";
-import Display from "./Components/Display";
 import { useEffect, useState } from "react";
-import Request from "./Components/Request";
-import requests from "./requests";
-import { Table } from "react-bootstrap";
-// import axios from "axios";
+
+import PayloadDetails from "./components/PayloadDetails";
+import PayloadList from "./components/PayloadList";
+import "./App.css";
+
+import binService from './services/bin';
 
 function App() {
-  let [payloadData, setPayloadData] = useState([]);
+  let [payloads, setPayloads] = useState([]);
   let [displayedPayload, setDisplayPayload] = useState();
 
+  let pathname = window.location.pathname;
+  let dirs = pathname.split('/')
+  let uuid = dirs[dirs.length-1]
+
   useEffect(() => {
-    // let pathname = window.location.pathname;
-    // console.log(pathname);
-    // axios
-    //   .get(`http://localhost:3001/`)
-    //   .then((res) => res.json())
-    //   .then((data) => setPayloadData(data.message))
-    //   .catch((error) => {
-    //     console.log(pathname + " doesn't exist");
-    //   });
-    setPayloadData(requests);
-  }, []);
+    (async () => {
+      try {
+        let data = await binService.getAllPayloads(uuid);
+        setPayloads(data);
+      } catch {
+        console.log("Couldn't fetch payloads");
+      }
+    })();
+  }, [uuid]);
 
   return (
     <div className="container">
-      <Request setDisplay={setDisplayPayload}></Request>;
-      <Display payload={displayedPayload}></Display>
+      <PayloadList
+        setDisplayPayload={setDisplayPayload}
+        payloads={payloads}
+      ></PayloadList>
+      <PayloadDetails payload={displayedPayload}></PayloadDetails>
     </div>
   );
 }
