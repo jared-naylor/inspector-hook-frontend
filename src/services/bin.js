@@ -8,13 +8,13 @@ const getAllPayloads = async (uuid) => {
 };
 
 const getAllBins = async () => {
-  const response = await axios.get(baseURL);
+  const response = await axios.get(`${baseURL}/hook`);
 
   return response.data;
 };
 
 const createBin = async () => {
-  const response = await axios.post(`${baseURL}/hook/new`);
+  const response = await axios.get(`${baseURL}/hook/new`);
 
   return response.data;
 };
