@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import io from "socket.io-client";
+const socket = io.connet("");
 
 import PayloadDetails from "./components/PayloadDetails";
 import PayloadList from "./components/PayloadList";
