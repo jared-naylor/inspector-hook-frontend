@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-const socket = io.connet("");
+const socket = io.connect("http://localhost:3001");
 
 import PayloadDetails from "./components/PayloadDetails";
 import PayloadList from "./components/PayloadList";
