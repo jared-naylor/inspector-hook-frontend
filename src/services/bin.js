@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://psh.pp.ua";
+const baseURL = "http://localhost:3003";
 
 const getAllPayloads = async (uuid) => {
   const response = await axios.get(`${baseURL}/hook/${uuid}`);
